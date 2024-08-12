@@ -1,0 +1,32 @@
+<div class="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full bg-yellow-300 p-4">
+  <div class="form-container mb-4 lg:mb-0 lg:mr-10 w-full max-w-md">
+    <form [formGroup]="dataForm" class="space-y-6 p-8 rounded-lg shadow-lg">
+      <div>
+        <label for="id" class="block text-lg font-semibold mb-2">ID:</label>
+        <input type="text" id="id" formControlName="id" class="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      </div>
+      <div>
+        <label for="name" class="block text-lg font-semibold mb-2">Name:</label>
+        <input type="text" id="name" formControlName="name" class="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      </div>
+      <div>
+        <label for="surname" class="block text-lg font-semibold mb-2">Surname:</label>
+        <input type="text" id="surname" formControlName="surname" class="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      </div>
+      <div>
+        <label for="email" class="block text-lg font-semibold mb-2">Email:</label>
+        <input type="email" id="email" formControlName="email" placeholder="ex: kowalski@email.com" class="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      </div>
+      <div>
+        <label for="phone" class="block text-lg font-semibold mb-2">Phone:</label>
+        <input type="text" id="phone" formControlName="phone" placeholder="ex: +48 *** *** ***" class="w-full border border-gray-300 p-2 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="showJson()" class="json-display w-full max-w-md lg:w-auto lg:ml-10">
+    <a *ngIf="showJson()" [href]="createDownloadLink()" download="data.json" class="block mb-4 text-blue-500">Download JSON</a>
+    <h3 class="text-lg font-semibold">Generated JSON 🔥:</h3>
+    <pre class="whitespace-pre-wrap bg-gray-100 p-4 rounded-lg shadow-sm">{{ jsonData() }}</pre>
+  </div>
+</div>
